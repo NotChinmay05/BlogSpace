@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Space</title>
+
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/posts-style.css">
+</head>
+
+<%- include("partials/header.ejs") %>
+
+<main>
+    <script>
+        $("#posts").addClass("active-page")
+    </script>
+
+<% if (locals.blogPosts && locals.blogPosts.length > 0) { %>
+    <div class="posts-container">
+        <% for (let i = 0; i < blogPosts.length; i++) { %>
+        <div class="post">
+            <div class="blog-header">
+                <h2 class="blog-title"> <%= blogPosts[i]["blog-title"] %> </h2>
+                <p class="blog-creator"> <%= blogPosts[i]["creator-name"] %> </p>
+            </div>
+            <p class="blog-content"> <%= blogPosts[i]["blog-content"] %> </p>
+            <p class="blog-date"> <%= blogPosts[i]["blog-date"] %></p>
+
+            <form class="post-buttons" method="post">
+                <button name="postValue" value="<%= i %>" formaction="/edit"><img src="/svg/edit.svg" alt="Edit">Edit</button>
+                <button name="postValue" value="<%= i %>" formaction="/delete"><img src="/svg/delete.svg" alt="Delete">Delete</button>
+            </form>
+        </div>
+        <% }} %>
+    </div>
+</main>
+
+<%- include("partials/footer.ejs") %>

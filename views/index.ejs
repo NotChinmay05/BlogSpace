@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Space</title>
+
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/home-style.css">
+</head>
+
+<%- include("partials/header.ejs") %>
+
+<main>
+    <script>
+        $("#home").addClass("active-page")
+    </script>
+    
+<% if (locals.blogPosts && locals.blogPosts.length > 0) { %>
+    <div class="posts-container">
+        <% for (let i = 0; i < Math.min(3, blogPosts.length); i++) { %>
+        <div class="post">
+            <h2 class="blog-title"> <%= blogPosts[i]["blog-title"] %> </h2>
+            <p class="blog-date"> <%= blogPosts[i]["blog-date"] %> </p>
+            <p class="blog-content"> <%= blogPosts[i]["blog-content"] %> </p>
+            <p class="blog-creator"> <%= blogPosts[i]["creator-name"] %> </p>
+        </div>
+        <% } %>
+    </div>
+    <a class="see-all-posts" href="/posts">See All Posts...</a>
+    <% } %>
+</main>
+
+<%- include("partials/footer.ejs") %>

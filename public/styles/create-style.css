@@ -1,0 +1,54 @@
+.posts-container{
+    width: 93%;
+    margin: 20px auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+form label{
+    display: inline-block;
+    width: 180px;
+    font-size: 24px;
+}
+
+form input{
+    width: 80%;
+    height: 40px;
+
+    padding: 0px 10px;
+}
+
+.detail-box{
+    display: flex;
+    align-items: flex-start;
+}
+
+form textarea[name="blog-content"]{
+    display: inline-block;
+    min-width: 80%;
+    height: 300px;
+
+    padding: 10px;
+}
+
+.form-button{
+    width: 94%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-button>button{
+    font-size: 24px;
+    background-color: #38B6FF;
+    color: white;
+    font-weight: bold;
+
+    padding: 5px 20px;
+    border-radius: 20px;
+
+    cursor: pointer;
+}

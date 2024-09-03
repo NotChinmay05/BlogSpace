@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Space</title>
+
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/create-style.css">
+</head>
+
+<%- include("partials/header.ejs") %>
+
+<main>
+    <script>
+        $("#create").addClass("active-page")
+    </script>
+    
+    <div class="posts-container">
+        <form action="/post" method="post">
+            <div class="detail-box">
+                <label for="creator-name">Your Name: </label>
+                <input type="text" placeholder="Enter your name here..." name="creator-name" value="<%= creatorName %>" required>
+            </div>
+
+            <div class="detail-box">
+                <label for="blog-title">Blog Title: </label>
+                <input type="text" placeholder="Give your blog a title..." name="blog-title" value="<%= blogTitle %>" required>
+            </div>
+
+            <div class="detail-box">
+                <label for="blog-content">Blog Content: </label>
+                <!-- <input type="text" placeholder="Content of the Blog" name="blog-content" required> -->
+                 <textarea name="blog-content" id="" placeholder="Content of your Blog..." required><%= blogContent %></textarea>
+            </div>
+
+            <div class="form-button">
+                <button type="submit">Edit</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include("partials/footer.ejs") %>
